@@ -20,3 +20,7 @@ Route::get('/', function () {
     //By KKH
     //return 'Hello Laravel';
 });
+
+Route::get('/testing',function ($value=''){
+	return 'This is a texting page';
+});
