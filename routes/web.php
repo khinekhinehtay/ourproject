@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+	//By KHSM
     return view('welcome');
 
     //By KKH
