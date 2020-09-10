@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //return view('welcome');
-
     //By KKH
     //return 'Hello Laravel';
     //By NNH
     return 'Hello Nyo';
+    return 'Hello Khine & Khin';
+});
+
+Route::get('/testing',function ($value=''){
+	return 'This is a texting page';
 });
