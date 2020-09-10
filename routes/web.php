@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
+    return view('welcome');
 
     //By KKH
-    return 'Hello Laravel';
+    //return 'Hello Laravel';
 });
 
 Route::get('/testing',function ($value=''){
