@@ -17,5 +17,7 @@ Route::get('/', function () {
     //return view('welcome');
 
     //By KKH
-    return 'Hello Laravel';
+    //return 'Hello Laravel';
+    //By NNH
+    return 'Hello Nyo';
 });
