@@ -48,7 +48,7 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->description = $request->description;
 
-        $brand->save();
+        $course->save();
         return redirect()->route('courses.index');
 
     }
@@ -73,7 +73,7 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.courses.edit',compact('brand'));
+        return view('backend.courses.edit',compact('course'));
     }
 
     /**
@@ -92,10 +92,10 @@ class CourseController extends Controller
         
         // Data insert
 
-        $brand->name = $request->name;
-        $brand->description = $request->description;
+        $course->name = $request->name;
+        $course->description = $request->description;
 
-        $brand->save();
+        $course->save();
         return redirect()->route('courses.index');
     }
 
