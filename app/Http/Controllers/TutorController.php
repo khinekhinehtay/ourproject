@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tutor;
 class TutorController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        //
+        $tutors = Tutor::all();
+        return view('backend.tutors.index',compact('tutors'));
     }
 
     /**
@@ -23,7 +24,7 @@ class TutorController extends Controller
      */
     public function create()
     {
-        //
+         return view('backend.tutors.create');
     }
 
     /**
@@ -34,7 +35,26 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'name' => 'required',
+            'photo' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'dob' => 'required',
+        ]);
+
+        // Data insert
+
+        $tutor = new Tutor;
+        $tutor->name = $request->name;
+        $tutor->photo = $request->photo;
+        $tutor->address = $request->address;
+        $tutor->email = $request->email;
+        $tutor->gender = $request->gender;
+        $tutor->dob = $request->dob;
+        $tutor->save();
+        return redirect()->route('tutors.index');
     }
 
     /**
@@ -45,7 +65,8 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-        //
+        $tutors = Tutor::find($id);
+        return view('backend.tutors.tutordetail',compact('tutors'));
     }
 
     /**
@@ -56,7 +77,7 @@ class TutorController extends Controller
      */
     public function edit($id)
     {
-        //
+         return view('backend.tutors.edit',compact('tutor'));
     }
 
     /**
@@ -68,7 +89,26 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+            'name' => 'required',
+            'photo' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'dob' => 'required',
+        ]);
+
+        // Data insert
+
+        $tutor = new Tutor;
+        $tutor->name = $request->name;
+        $tutor->photo = $request->photo;
+        $tutor->address = $request->address;
+        $tutor->email = $request->email;
+        $tutor->gender = $request->gender;
+        $tutor->dob = $request->dob;
+        $tutor->save();
+        return redirect()->route('tutors.index');
     }
 
     /**
