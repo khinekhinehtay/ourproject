@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-	//By KHSM
-=======
 
->>>>>>> fe7cb23aeb5bf791b289d0396c42877df85176e9
     return view('welcome');
 
 });
