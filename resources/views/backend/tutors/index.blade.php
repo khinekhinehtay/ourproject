@@ -33,7 +33,7 @@
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$tutor->name}}</td>            
-                        <td>{{$tutor->photo}}</td> 
+                        <td><img src="{{$tutor->photo}}" class="rounded circle" width="150px" height="120px"></td> 
                         <td>{{$tutor->address}}</td>
                         <td>{{$tutor->email}}</td>
                         <td>{{$tutor->gender}}</td> 

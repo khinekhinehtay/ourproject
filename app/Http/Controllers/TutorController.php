@@ -44,11 +44,17 @@ class TutorController extends Controller
             'dob' => 'required',
         ]);
 
+         $photoName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('backend/tutorimg'),$photoName);
+
+        $path = 'backend/tutorimg/'.$photoName;
+
         // Data insert
 
         $tutor = new Tutor;
         $tutor->name = $request->name;
-        $tutor->photo = $request->photo;
+        $tutor->photo = $path;
         $tutor->address = $request->address;
         $tutor->email = $request->email;
         $tutor->gender = $request->gender;
@@ -91,18 +97,29 @@ class TutorController extends Controller
     {
          $request->validate([
             'name' => 'required',
-            'photo' => 'required',
+            'photo' => 'required|sometimes',
             'address' => 'required',
             'email' => 'required',
             'gender' => 'required',
             'dob' => 'required',
         ]);
 
+         if($request->hasFile('photo')){
+        $photoName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('backend/tutorimg'),$photoName);
+
+        $path = 'backend/tutorimg/'.$photoName;
+        }else{
+
+            $path=$request->oldphoto;
+        }
+
         // Data insert
 
         $tutor = new Tutor;
         $tutor->name = $request->name;
-        $tutor->photo = $request->photo;
+        $tutor->photo = $path;
         $tutor->address = $request->address;
         $tutor->email = $request->email;
         $tutor->gender = $request->gender;

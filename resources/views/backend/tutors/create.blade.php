@@ -27,41 +27,40 @@
 			      </div>
 
 				  <div class="form-group row {{ $errors->has('photo') ? 'has-error' : '' }}">
-			        <label for="inputDescription" class="col-sm-2 col-form-label">Photo</label>
+			        <label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="name">
+			          <input type="file" id="inputPhoto" name="photo" class="d-block">
 			          <span class="text-danger">{{ $errors->first('photo') }}</span>
 			        </div>
-			      </div>
 
 			      <div class="form-group row {{ $errors->has('address') ? 'has-error' : '' }}">
-			        <label for="inputName" class="col-sm-2 col-form-label">Address</label>
+			        <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="name">
+			          <input type="text" class="form-control" id="inputAddress" name="address">
 			          <span class="text-danger">{{ $errors->first('address') }}</span>
 			        </div>
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('email') ? 'has-error' : '' }}">
-			        <label for="inputName" class="col-sm-2 col-form-label">Email</label>
+			        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="name">
+			          <input type="text" class="form-control" id="inputEmail" name="email">
 			          <span class="text-danger">{{ $errors->first('email') }}</span>
 			        </div>
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('gender') ? 'has-error' : '' }}">
-			        <label for="inputName" class="col-sm-2 col-form-label">Gender</label>
+			        <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="name">
+			          <input type="radio" class="form-control" id="inputGender" name="gender">
 			          <span class="text-danger">{{ $errors->first('gender') }}</span>
 			        </div>
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('dob') ? 'has-error' : '' }}">
-			        <label for="inputName" class="col-sm-2 col-form-label">DOB</label>
+			        <label for="inputDob" class="col-sm-2 col-form-label">DOB</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="name">
+			          <input type="text" class="form-control" id="inputDob" name="dob">
 			          <span class="text-danger">{{ $errors->first('dob') }}</span>
 			        </div>
 			      </div>
