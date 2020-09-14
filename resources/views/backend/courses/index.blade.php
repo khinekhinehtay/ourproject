@@ -23,18 +23,20 @@
     			</thead>
     			<tbody>
                     @php $i=1; @endphp
-                    @foreach($courses as $course)
+                    @foreach($courses as $course){
+                    
+                }
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$course->name}}</td>            
                         <td>{{$course->description}}</td>            
                         <td>
-                            {{-- <a href="{{route('courses.show',$course->id)}}" class="btn btn-outline-primary">Detail</a>
+                            <a href="{{route('courses.show',$course->id)}}" class="btn btn-outline-primary">Detail</a>
                             
                             
                             <a href="{{route('courses.edit',$course->id)}}" class="btn btn-outline-warning">Edit</a>
 
-                             <form action="{{route('courses.destroy',$course->id)}}" method="POST" class="d-inline-block"> --}}
+                             <form action="{{route('courses.destroy',$course->id)}}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <!-- delete lote yin method ka post nat ma ya buu dar kout method ko delete so pe change pay ya mal update lo myoe pot -->
