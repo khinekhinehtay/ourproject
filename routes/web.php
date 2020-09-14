@@ -15,11 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-
-    //By KKH
-    //return 'Hello Laravel';
 });
 
-Route::get('/testing',function ($value=''){
-	return 'This is a texting page';
-});
+
+//backend
+Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
