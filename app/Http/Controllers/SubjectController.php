@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Subject;
 
 class SubjectController extends Controller
 {
@@ -13,7 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+         $subjects = Subject::all();
+        return view('backend.subjects.index',compact('subjects'));
     }
 
     /**
@@ -23,7 +25,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.subjects.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            
+        ]);
+         // Data insert
+
+        $subject = new Subject;
+        $subject->name = $request->name;
+        
+        $subject->save();
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -45,7 +57,8 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $subjects = Subject::find($id);
+        return view('backend.subjects',compact('subjects'));
     }
 
     /**
@@ -56,7 +69,7 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.subjects.edit',compact('subject'));
     }
 
     /**
@@ -68,7 +81,13 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            
+        ]);
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('subjects.index');
     }
 
     /**
