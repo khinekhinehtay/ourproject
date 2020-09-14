@@ -21,11 +21,6 @@ class CreateTutorsTable extends Migration
             $table->string('email');
             $table->string('gender');
             $table->string('dob');
-            $table->unsignedBigInteger('course_id');
-            $table->foreign('course_id')
-                  ->references('id')
-                  ->on('courses')
-                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
