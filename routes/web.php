@@ -23,8 +23,7 @@ Route::get('/', function () {
 //backend
 Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
 Route::resource('courses','CourseController');
-<<<<<<< HEAD
+
 Route::resource('tutors','TutorController');
-=======
+
 Route::resource('lessons','LessonController');
->>>>>>> e857617f78da9b339b1e8d626dd8b56931821ecd
