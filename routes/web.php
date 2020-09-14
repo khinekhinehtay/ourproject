@@ -22,3 +22,4 @@ Route::get('/', function () {
 
 //backend
 Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
+Route::resource('courses','CourseController');

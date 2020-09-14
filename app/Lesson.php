@@ -12,7 +12,7 @@ class Lesson extends Model
 
   public function sujects($value='')
   {
-  	return $this->hasMany('App\Subject');
+  	return $this->belongsTo('App\Subject');
   }
 
 }

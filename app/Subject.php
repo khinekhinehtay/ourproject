@@ -15,4 +15,9 @@ class Subject extends Model
   	return $this->belongsTo('App\Course');
   }
 
+  public function lessons($value='')
+  {
+  	return $this->hasMany('App\Lesson');
+  }
+
 }

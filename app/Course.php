@@ -12,7 +12,7 @@ class Course extends Model
 
   public function tutors($value='')
   {
-  	return $this->hasMany('App\Tutor');
+  	return $this->belongsTo('App\Tutor');
   }
 
   public function subjects($value='')
