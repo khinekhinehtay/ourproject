@@ -74,7 +74,8 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $course = Course::find($id);
         return view('backend.courses.edit',compact('course'));
     }
 

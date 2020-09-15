@@ -77,7 +77,8 @@ class LessonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $lesson = Lesson::find($id);
         return view('backend.lessons.edit',compact('lesson'));
     }
 

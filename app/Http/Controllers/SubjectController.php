@@ -70,7 +70,8 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $subject = Subject::find($id);
         return view('backend.subjects.edit',compact('subject'));
     }
 

@@ -82,7 +82,8 @@ class TutorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {    
+         $tutor = Tutor::find($id);
          return view('backend.tutors.edit',compact('tutor'));
     }
 
