@@ -39,6 +39,7 @@ class LessonController extends Controller
         $request->validate([
             'video' => 'required',
             'description' => 'required',
+            'subject_id' => 'required'
         ]);
 
         $videoName = time().'.'.$request->video->extension();
@@ -51,6 +52,7 @@ class LessonController extends Controller
         $lesson = new Lesson;
         $lesson->video = $path;
         $lesson->description = $request->description;
+        $lesson->subject_id = $request->subject_id;
 
         $category->save();
         return redirect()->route('lessons.index');  
@@ -91,6 +93,7 @@ class LessonController extends Controller
         $request->validate([
             'video' => 'required|sometimes',
             'description' => 'required',
+            'subject_id' => 'required'
         ]);
 
         if($request->hasFile('video')){
@@ -108,6 +111,7 @@ class LessonController extends Controller
         $lesson = new Lesson;
         $lesson->video = $path;
         $lesson->description = $request->description;
+        $lesson->subject_id = $request->subject_id;
 
         $lesson->save();
         return redirect()->route('lessons.index'); 

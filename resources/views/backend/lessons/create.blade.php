@@ -33,6 +33,14 @@
 			        </div>
 			      </div>
 
+			      <div class="form-group row {{ $errors->has('subject_id') ? 'has-error' : '' }}">
+			        <label for="inputSubjectId" class="col-sm-2 col-form-label">Subject_ID</label>
+			        <div class="col-sm-5">
+			          <input type="text" class="form-control" id="inputSubjectId" name="subject_id">
+			          <span class="text-danger">{{ $errors->first('subject_id') }}</span>
+			        </div>
+			      </div>
+
 			      <div class="form-group row">
 			        <div class="col-sm-5">
 			          <input type="submit" class="btn btn-primary" name="btnsubmit" value="Create">

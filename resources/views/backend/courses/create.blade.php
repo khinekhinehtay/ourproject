@@ -29,16 +29,16 @@
 			      <div class="form-group row {{ $errors->has('description') ? 'has-error' : '' }}">
 			        <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputName" name="description">
+			          <input type="text" class="form-control" id="inputDescription" name="description">
 			          <span class="text-danger">{{ $errors->first('description') }}</span>
 			        </div>
 			      </div>
 
-			      <div class="form-group row {{ $errors->has('tutorid') ? 'has-error' : '' }}">
+			      <div class="form-group row {{ $errors->has('tutor_id') ? 'has-error' : '' }}">
 			        <label for="inputTutorId" class="col-sm-2 col-form-label">Tutor_ID</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputTutorId" name="tutorid">
-			          <span class="text-danger">{{ $errors->first('tutorid') }}</span>
+			          <input type="text" class="form-control" id="inputTutorId" name="tutor_id">
+			          <span class="text-danger">{{ $errors->first('tutor_id') }}</span>
 			        </div>
 			      </div>
 

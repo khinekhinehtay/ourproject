@@ -18,6 +18,7 @@
     					<th>No</th>
     					<th>Video</th>
                         <th>Description</th>
+                        <th>Subject_ID</th>
     					<th>Actions</th>
     				</tr>
     			</thead>
@@ -27,7 +28,8 @@
     				<tr>
                         <td>{{$i++}}</td>            
                         <td><img src="{{$lesson->video}}" class="rounded circle" width="150px" height="120px"></td>
-                        <td>{{$lesson->description}}</td>             
+                        <td>{{$lesson->description}}</td>
+                        <td>{{$lesson->subject_id}}</td>             
                         <td>
                             
                             <a href="{{route('lessons.edit',$lesson->id)}}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>

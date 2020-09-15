@@ -90,6 +90,7 @@ class CourseController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'tutor_id' => 'required',
         ]);
         
         // Data insert
