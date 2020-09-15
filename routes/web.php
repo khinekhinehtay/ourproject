@@ -25,7 +25,7 @@ Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
 
 Route::resource('courses','CourseController');
 
-Route::resource('subjects','SubjectsController');
+Route::resource('subjects','SubjectController');
 
 Route::resource('tutors','TutorController');
 

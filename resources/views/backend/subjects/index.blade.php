@@ -17,6 +17,7 @@
     				<tr>
     					<th>No</th>
     					<th>Name</th>
+                        <th>Course_ID</th>
     					<th>Actions</th>
     				</tr>
     			</thead>
@@ -27,7 +28,8 @@
                 }
     				<tr>
                         <td>{{$i++}}</td>    
-                        <td>{{$subject->name}}</td>            
+                        <td>{{$subject->name}}</td>
+                        <td>{{$subject->course_id}}</td>
                                     
                         <td>
                             <a href="{{route('subjects.show',$subject->id)}}" class="btn btn-outline-primary">Detail</a>

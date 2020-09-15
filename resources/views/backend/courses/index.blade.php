@@ -24,9 +24,9 @@
     			</thead>
     			<tbody>
                     @php $i=1; @endphp
-                    @foreach($courses as $course){
+                    @foreach($courses as $course)
                     
-                }
+                
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$course->name}}</td>            

@@ -65,7 +65,7 @@ class CourseController extends Controller
     {
         $courses = Course::find($id);
         return view('backend.courses.coursedetail',compact('courses'));
-    }
+    }                                                                                   
 
     /**
      * Show the form for editing the specified resource.

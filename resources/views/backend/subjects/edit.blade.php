@@ -27,6 +27,14 @@
 			        </div>
 			      </div>
 
+			      <div class="form-group row {{ $errors->has('course_id') ? 'has-error' : '' }}">
+			        <label for="inputCourseID" class="col-sm-2 col-form-label">Course_ID</label>
+			        <div class="col-sm-5">
+			          <input type="text" class="form-control" id="inputCourseID" name="course_id" value="{{$subject->course_id}}">
+			          <span class="text-danger">{{ $errors->first('course_id') }}</span>
+			        </div>
+			      </div>
+
 
 
 			      <div class="form-group row">

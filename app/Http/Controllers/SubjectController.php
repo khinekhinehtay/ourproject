@@ -38,12 +38,14 @@ class SubjectController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'course_id' => 'required'
             
         ]);
          // Data insert
 
         $subject = new Subject;
         $subject->name = $request->name;
+        $subject->course_id = $request->course_id;
         
         $subject->save();
         return redirect()->route('subjects.index');
@@ -83,9 +85,12 @@ class SubjectController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'course_id' => 'required'
             
         ]);
+
         $subject->name = $request->name;
+        $subject->course_id = $request->course_id;
         $subject->save();
         return redirect()->route('subjects.index');
     }
