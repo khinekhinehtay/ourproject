@@ -5,7 +5,7 @@
     <!-- Page Heading -->
   	<div class="row">
   		<div class="col-md-12 mb-3">
-    		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Courses</h1>
+    		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Subjects</h1>
     		<a href="{{route('courses.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i>Add New</a>
   		</div>
   	</div>

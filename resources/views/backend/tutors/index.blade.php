@@ -27,9 +27,7 @@
     			</thead>
     			<tbody>
                     @php $i=1; @endphp
-                    @foreach($tutors as $tutor){
-                    
-                }
+                    @foreach($tutors as $tutor)
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$tutor->name}}</td>            
