@@ -18,6 +18,7 @@
     					<th>No</th>
     					<th>Name</th>
                         <th>Desciption</th>
+                        <th>Tutor_ID</th>
     					<th>Actions</th>
     				</tr>
     			</thead>
@@ -29,7 +30,8 @@
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$course->name}}</td>            
-                        <td>{{$course->description}}</td>            
+                        <td>{{$course->description}}</td>
+                        <td>{{$course->tutor_id}}</td>            
                         <td>
                             <a href="{{route('courses.show',$course->id)}}" class="btn btn-outline-primary">Detail</a>
                             

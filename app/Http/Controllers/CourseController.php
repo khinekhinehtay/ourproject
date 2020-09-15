@@ -40,6 +40,7 @@ class CourseController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'tutor_id' => 'required'
         ]);
 
         // Data insert
@@ -47,6 +48,7 @@ class CourseController extends Controller
         $course = new Course;
         $course->name = $request->name;
         $course->description = $request->description;
+        $course->tutor_id = $request->tutor_id;
 
         $course->save();
         return redirect()->route('courses.index');
@@ -94,6 +96,7 @@ class CourseController extends Controller
 
         $course->name = $request->name;
         $course->description = $request->description;
+        $course->tutor_id = $request->tutor_id;
 
         $course->save();
         return redirect()->route('courses.index');
