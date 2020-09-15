@@ -94,7 +94,6 @@ class CourseController extends Controller
         ]);
         
         // Data insert
-        $course = new Course;
         $course->name = $request->name;
         $course->description = $request->description;
         $course->tutor_id = $request->tutor_id;
