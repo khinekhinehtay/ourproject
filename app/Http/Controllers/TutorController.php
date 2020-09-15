@@ -117,7 +117,7 @@ class TutorController extends Controller
 
         // Data insert
 
-        $tutor = new Tutor;
+        
         $tutor->name = $request->name;
         $tutor->photo = $path;
         $tutor->address = $request->address;
