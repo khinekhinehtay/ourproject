@@ -6,7 +6,7 @@
   	<div class="row">
   		<div class="col-md-12 mb-3">
     		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Subjects</h1>
-    		<a href="{{route('courses.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i>Add New</a>
+    		<a href="{{route('subjects.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i>Add New</a>
   		</div>
   	</div>
     
@@ -17,19 +17,19 @@
     				<tr>
     					<th>No</th>
     					<th>Name</th>
-                        <th>Course_ID</th>
+                        <th>Course_Name</th>
     					<th>Actions</th>
     				</tr>
     			</thead>
     			<tbody>
                     @php $i=1; @endphp
-                    @foreach($subjects as $subject){
+                    @foreach($subjects as $subject)
                     
-                }
+                
     				<tr>
                         <td>{{$i++}}</td>    
                         <td>{{$subject->name}}</td>
-                        <td>{{$subject->course_id}}</td>
+                        <td>{{$subject->course->name}}</td>
                                     
                         <td>
                             <a href="{{route('subjects.show',$subject->id)}}" class="btn btn-outline-primary">Detail</a>

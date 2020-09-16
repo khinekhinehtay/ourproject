@@ -10,7 +10,7 @@ class Course extends Model
     'name', 'description'
   ];
 
-  public function tutors($value='')
+  public function tutor($value='')
   {
   	return $this->belongsTo('App\Tutor');
   }

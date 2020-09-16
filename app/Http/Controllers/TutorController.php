@@ -117,8 +117,7 @@ class TutorController extends Controller
         }
 
         // Data insert
-
-        
+        $tutor = Tutor::find($id);
         $tutor->name = $request->name;
         $tutor->photo = $path;
         $tutor->address = $request->address;
@@ -137,6 +136,9 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tutor = Tutor::find($id);
+        //dd($tutor);
+        $tutor->delete();
+        return redirect()->route('courses.index');
     }
 }

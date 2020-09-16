@@ -9,7 +9,7 @@ class Subject extends Model
     protected $fillable = [
     'name','course_id',
   ];
-  public function courses($value='')
+  public function course($value='')
   {
   	return $this->belongsTo('App\Course');
   }

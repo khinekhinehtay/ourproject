@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use App\Subject;
 
 class LessonController extends Controller
 {
@@ -24,8 +25,10 @@ class LessonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('backend.lessons.create');
+    {   
+        //$lessons = Lesson::all();
+        $subjects = Subject::all();
+        return view('backend.lessons.create',compact('subjects'));
     }
 
     /**
@@ -54,7 +57,7 @@ class LessonController extends Controller
         $lesson->description = $request->description;
         $lesson->subject_id = $request->subject_id;
 
-        $category->save();
+        $lesson->save();
         return redirect()->route('lessons.index');  
     }
 
@@ -79,7 +82,8 @@ class LessonController extends Controller
     public function edit($id)
     {   
         $lesson = Lesson::find($id);
-        return view('backend.lessons.edit',compact('lesson'));
+        $subjects = Tutor::all();
+        return view('backend.lessons.edit',compact('lesson','subjects'));
     }
 
     /**
@@ -109,7 +113,7 @@ class LessonController extends Controller
         }
 
         // Data insert
-        $lesson = new Lesson;
+        $lesson = Lesson::find($id);
         $lesson->video = $path;
         $lesson->description = $request->description;
         $lesson->subject_id = $request->subject_id;
@@ -126,6 +130,9 @@ class LessonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        //dd($course);
+        $lesson->delete();
+        return redirect()->route('lessons.index');
     }
 }

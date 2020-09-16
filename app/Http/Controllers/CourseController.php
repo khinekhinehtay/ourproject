@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Tutor;
 
 class CourseController extends Controller
 {
@@ -24,8 +25,9 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('backend.courses.create');
+    {   
+        $tutors = Tutor::all();
+        return view('backend.courses.create',compact('tutors'));
     }
 
     /**
@@ -76,7 +78,8 @@ class CourseController extends Controller
     public function edit($id)
     {   
         $course = Course::find($id);
-        return view('backend.courses.edit',compact('course'));
+        $tutors = Tutor::all();
+        return view('backend.courses.edit',compact('course','tutors'));
     }
 
     /**
@@ -95,6 +98,7 @@ class CourseController extends Controller
         ]);
         
         // Data insert
+        $course = Course::find($id);
         $course->name = $request->name;
         $course->description = $request->description;
         $course->tutor_id = $request->tutor_id;
@@ -111,6 +115,10 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //dd($id);
+        $course = Course::find($id);
+        //dd($course);
+        $course->delete();
+        return redirect()->route('courses.index');
     }
 }

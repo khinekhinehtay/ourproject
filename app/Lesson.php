@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     protected $fillable = [
-    'video', 'description','subject_id'
+    'video', 'description', 'minutes', 'subject_id'
   ];
 
-  public function sujects($value='')
+  public function subject($value='')
   {
   	return $this->belongsTo('App\Subject');
   }

@@ -17,6 +17,7 @@ class CreateLessonsTable extends Migration
             $table->id();
             $table->text('video');
             $table->text('description');
+            $table->string('minutes');
             $table->unsignedBigInteger('subject_id');
             $table->timestamps();
             $table->foreign('subject_id')

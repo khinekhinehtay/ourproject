@@ -6,7 +6,7 @@
   	<div class="row">
   		<div class="col-md-10 mb-3 mx-auto">
     		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Tutor Detail</h1>
-    		<a href="{{route('tutordetails.index')}}" class="btn btn-outline-info float-right"><i class="fas fa-angle-double-left"></i>Go back</a>
+    		<a href="{{route('tutors.index')}}" class="btn btn-outline-info float-right"><i class="fas fa-angle-double-left"></i>Go back</a>
   		</div>
     </div>
     
@@ -29,12 +29,12 @@
  				
  				<tr>
  					 <td>{{$i++}}</td>    
-                        <td>{{$tutor->name}}</td>            
-                        <td>{{$tutor->photo}}</td> 
-                        <td>{{$tutor->address}}</td>
-                        <td>{{$tutor->email}}</td>
-                        <td>{{$tutor->gender}}</td> 
-                        <td>{{$tutor->dob}}</td> >
+                        <td>{{$tutors->name}}</td>            
+                        <td>{{$tutors->photo}}</td> 
+                        <td>{{$tutors->address}}</td>
+                        <td>{{$tutors->email}}</td>
+                        <td>{{$tutors->gender}}</td> 
+                        <td>{{$tutors->dob}}</td> >
 
  				</tr>
  				

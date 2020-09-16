@@ -28,9 +28,13 @@
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('course_id') ? 'has-error' : '' }}">
-			        <label for="inputCourseID" class="col-sm-2 col-form-label">Course_ID</label>
+			        <label for="inputCourseID" class="col-sm-2 col-form-label">Course_Name</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputCourseID" name="course_id" value="{{$subject->course_id}}">
+			          <select name="course_id" class="form-control">
+			          	@foreach($courses as $course)
+			          	<option value="{{$course->id}}" {{ ( $course->id == $subject->course_id) ? 'selected' : '' }}>{{$course->name}}</option>
+			          	@endforeach
+			          </select>
 			          <span class="text-danger">{{ $errors->first('course_id') }}</span>
 			        </div>
 			      </div>

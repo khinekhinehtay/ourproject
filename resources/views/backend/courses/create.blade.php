@@ -35,9 +35,13 @@
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('tutor_id') ? 'has-error' : '' }}">
-			        <label for="inputTutorId" class="col-sm-2 col-form-label">Tutor_ID</label>
+			        <label for="inputTutorId" class="col-sm-2 col-form-label">Tutor_Name</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputTutorId" name="tutor_id">
+			          <select name="tutor_id" class="form-control">
+			          	@foreach($tutors as $tutor)
+			          	<option value="{{$tutor->id}}">{{$tutor->name}}</option>
+			          	@endforeach
+			          </select>
 			          <span class="text-danger">{{ $errors->first('tutor_id') }}</span>
 			        </div>
 			      </div>

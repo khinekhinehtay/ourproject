@@ -16,9 +16,9 @@
     			<thead class="thead-dark">
     				<tr>
     					<th>No</th>
-    					<th>Video</th>
+    					<th>Time</th>
                         <th>Description</th>
-                        <th>Subject_ID</th>
+                        <th>Subject_Name</th>
     					<th>Actions</th>
     				</tr>
     			</thead>
@@ -27,9 +27,14 @@
                     @foreach($lessons as $lesson)
     				<tr>
                         <td>{{$i++}}</td>            
-                        <td><img src="{{$lesson->video}}" class="rounded circle" width="150px" height="120px"></td>
+                        <td>
+                            {{$lesson->minutes}} mins
+                            {{-- <video width="320" height="240" controls>
+                                <source src="{{$lesson->video}}" type="video/mp4">
+                            </video> --}}
+                        </td>
                         <td>{{$lesson->description}}</td>
-                        <td>{{$lesson->subject_id}}</td>             
+                        <td>{{$lesson->subject->name}}</td>             
                         <td>
                             
                             <a href="{{route('lessons.edit',$lesson->id)}}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>

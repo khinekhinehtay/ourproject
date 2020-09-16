@@ -19,7 +19,7 @@
 			      @method('PUT')
 
 			      <div class="form-group row {{ $errors->has('video') ? 'has-error' : '' }}">
-			        <label for="inputPhoto" class="col-sm-2 col-form-label">Video</label>
+			        <label for="inputVideo" class="col-sm-2 col-form-label">Video</label>
 			        <div class="col-sm-5">
 			        	<nav>
 						  <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -30,7 +30,9 @@
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
 						  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-						  	<img src="{{asset($lesson->video)}}" width="200px" height="150px" class="mt-3">
+						  	<video width="320" height="240" controls>
+						  	<source src="{{asset($lesson->video)}}"type="video/mp4">
+						  	</video>
 						  	<input type="hidden" name="oldvideo" value="{{$lesson->video}}">
 						  </div>
 						  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -54,9 +56,13 @@
 			      </div>
 
 			      <div class="form-group row {{ $errors->has('subject_id') ? 'has-error' : '' }}">
-			        <label for="inputSubjectId" class="col-sm-2 col-form-label">Subject_ID</label>
+			        <label for="inputSubjectId" class="col-sm-2 col-form-label">Subject_Name</label>
 			        <div class="col-sm-5">
-			          <input type="text" class="form-control" id="inputSubjectId" name="subject_id" value="{{$lesson->subject_id}}">
+			          <select name="subject_id" class="form-control">
+			          	@foreach($subjects as $subject)
+			          	<option value="{{$subject->id}}" {{ ( $subject->id == $lesson->subject_id) ? 'selected' : '' }}>{{$subject->name}}</option>
+			          	@endforeach
+			          </select>
 			          <span class="text-danger">{{ $errors->first('subject_id') }}</span>
 			        </div>
 			      </div>

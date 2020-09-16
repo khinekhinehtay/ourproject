@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subject;
+use App\Course;
 
 class SubjectController extends Controller
 {
@@ -14,7 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-         $subjects = Subject::all();
+        $subjects = Subject::all();
         return view('backend.subjects.index',compact('subjects'));
     }
 
@@ -24,8 +25,9 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('backend.subjects.create');
+    {   
+        $courses = Course::all();
+        return view('backend.subjects.create',compact('courses'));
     }
 
     /**
@@ -72,7 +74,8 @@ class SubjectController extends Controller
     public function edit($id)
     {   
         $subject = Subject::find($id);
-        return view('backend.subjects.edit',compact('subject'));
+        $courses = Course::all();
+        return view('backend.subjects.edit',compact('subject','courses'));
     }
 
     /**
@@ -90,6 +93,7 @@ class SubjectController extends Controller
             
         ]);
 
+        $subject = Subject::find($id);
         $subject->name = $request->name;
         $subject->course_id = $request->course_id;
         $subject->save();
@@ -104,6 +108,9 @@ class SubjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subject = Subject::find($id);
+        //dd($subject);
+        $subject->delete();
+        return redirect()->route('subjects.index');
     }
 }
