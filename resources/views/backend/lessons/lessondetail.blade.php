@@ -5,8 +5,8 @@
     <!-- Page Heading -->
   	<div class="row">
   		<div class="col-md-12 mb-3">
-    		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Course Detail</h1>
-    		<a href="{{route('courses.index')}}" class="btn btn-outline-info float-right"><i class="fas fa-angle-double-left"></i>Go back</a>
+    		<h1 class="h3 mb-0 text-gray-800 d-inline-block">Lesson Detail</h1>
+    		<a href="{{route('lessons.index')}}" class="btn btn-outline-info float-right"><i class="fas fa-angle-double-left"></i>Go back</a>
   		</div>
     </div>
     
@@ -16,9 +16,9 @@
  			<thead class="thead-dark">
  				<tr>
  					<th>No</th>
- 					<th>Name</th>
- 					<th>Photo</th>
+          <th>Subject Name</th>
  					<th>Description</th>
+ 					<th>Video</th>
 
  					<!-- <th>Actions</th> -->
  				</tr>
@@ -28,9 +28,13 @@
  				
  				<tr>
  					<td>{{$i++}}</td>
- 					<td>{{$courses->name}}</td>
- 					<td>{{$courses->photo}}</td>
- 					<td>{{$courses->description}}</td>
+          <td>{{$lessons->subject->name}}</td>
+ 					<td>{{$lessons->description}}</td>
+ 					<td>
+ 						<video width="250" height="170" controls>
+                <source src="{{$lessons->video}}" type="video/mp4">
+            </video>
+          </td>
 
  				</tr>
  				

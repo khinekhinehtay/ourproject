@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $fillable = [
-    'name', 'description'
+    'name', 'photo','description'
   ];
 
   public function tutor($value='')

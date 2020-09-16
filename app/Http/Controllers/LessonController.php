@@ -70,6 +70,7 @@ class LessonController extends Controller
     public function show($id)
     {
         $lessons = Lesson::find($id);
+        // $subjects = Subject::find($id);
         return view('backend.lessons.lessondetail',compact('lessons'));
     }
 
@@ -82,7 +83,7 @@ class LessonController extends Controller
     public function edit($id)
     {   
         $lesson = Lesson::find($id);
-        $subjects = Tutor::all();
+        $subjects = Subject::all();
         return view('backend.lessons.edit',compact('lesson','subjects'));
     }
 

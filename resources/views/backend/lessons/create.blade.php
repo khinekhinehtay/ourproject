@@ -25,6 +25,14 @@
 			        </div>
 			      </div>
 
+			      <div class="form-group row {{ $errors->has('minutes') ? 'has-error' : '' }}">
+			        <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+			        <div class="col-sm-5">
+			          <input type="number" class="form-control" id="inputTime" name="minutes">
+			          <span class="text-danger">{{ $errors->first('minutes') }}</span>
+			        </div>
+			      </div>
+
 			      <div class="form-group row {{ $errors->has('description') ? 'has-error' : '' }}">
 			        <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
 			        <div class="col-sm-5">

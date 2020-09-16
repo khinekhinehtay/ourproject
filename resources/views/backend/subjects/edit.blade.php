@@ -1,4 +1,4 @@
-@extends('backend.backendtemplate')
+	@extends('backend.backendtemplate')
 
 @section('content')
 	<div class="container-fluid">

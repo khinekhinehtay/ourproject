@@ -26,6 +26,14 @@
 			        </div>
 			      </div>
 
+			      <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
+			      	<label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
+			      	<div class="col-sm-5">
+			      		<input type="file" id="inputPhoto" name="photo" class="d-block">
+			      		<span class="text-danger">{{ $errors->first('photo') }}</span>
+			      	</div>
+			      </div>
+
 			      <div class="form-group row {{ $errors->has('description') ? 'has-error' : '' }}">
 			        <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
 			        <div class="col-sm-5">
