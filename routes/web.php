@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 
 //backend
+Route::middleware('role:Admin')->group(function(){
 Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
 
 Route::resource('courses','CourseController');
@@ -30,4 +31,9 @@ Route::resource('subjects','SubjectController');
 Route::resource('tutors','TutorController');
 
 Route::resource('lessons','LessonController');
-//Route::resource('login','Controller');
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
