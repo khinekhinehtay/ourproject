@@ -139,6 +139,6 @@ class TutorController extends Controller
         $tutor = Tutor::find($id);
         //dd($tutor);
         $tutor->delete();
-        return redirect()->route('courses.index');
+        return redirect()->route('tutors.index');
     }
 }

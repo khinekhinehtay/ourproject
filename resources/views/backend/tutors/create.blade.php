@@ -52,7 +52,7 @@
 			      <div class="form-group  {{ $errors->has('gender') ? 'has-error' : '' }}">
 			        <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
 			        <div class="col-sm-5">
-			         <input type="radio"  name="gender" value="male" id="inputMale"><label for="inputMale">Male</label>
+			         <input type="radio"  name="gender" value="male" id="inputMale" checked="checked"><label for="inputMale">Male</label>
 						<input type="radio" name="gender" value="female" id="inputFemale"><label for="inputFemale">Female</label>
 			          <span class="text-danger">{{ $errors->first('gender') }}</span>
 			          {{--  <input type="radio" class="form-control" id="inputFemale" name="Female" value="Female">

@@ -17,9 +17,9 @@
       		<form action="{{route('tutors.update',$tutor->id)}}" method="post" enctype="multipart/form-data">
 			      @csrf
 			      @method('PUT')
+			      <div class="form-group row {{ $errors->has('nam
 			      
-			       
-			      <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
+			       e') ? 'has-error' : '' }}">
 			        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			        <div class="col-sm-5">
 			          <input type="text" class="form-control" id="inputName" name="name" value="{{$tutor->name}}">
@@ -44,13 +44,9 @@
 						  </div>
 						  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 			          			<input type="file" id="inputPhoto" name="photo" class="d-block mt-3">
-						  	
 						  </div>
-						 
 						</div>
 			          	<span class="text-danger">{{ $errors->first('photo') }}</span>
-
-
 			        </div>
 			      </div>
 
@@ -72,8 +68,21 @@
 
 			      <div class="form-group row {{ $errors->has('gender') ? 'has-error' : '' }}">
 			        <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
-			        <div class="col-sm-5">
-			          <input type="radio" class="form-control" id="inputGender" name="gender" value="{{$tutor->gender}}">
+			        <div class="col-sm-5"><input type="radio"  name="gender" value="male" id="inputMale" 
+							@if($tutor->gender=='male')
+							checked 
+							@endif
+							>
+					  
+						<label for="inputMale">Male</label>
+						<input type="radio" name="gender" value="female" id="inputFemale"
+						 
+							@if($tutor->gender=='female')
+							checked 
+							@endif
+						 >
+							<label for="inputFemale">Female</label>
+			          {{-- <input type="radio" class="form-control" id="inputGender" name="gender" value="{{$tutor->gender}}"> --}}
 			          <span class="text-danger">{{ $errors->first('gender') }}</span>
 			        </div>
 			      </div>
