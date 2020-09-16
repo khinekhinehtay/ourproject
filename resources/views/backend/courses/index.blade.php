@@ -17,6 +17,7 @@
     				<tr>
     					<th>No</th>
     					<th>Name</th>
+                        <th>Photo</th>
                         <th>Desciption</th>
                         <th>Tutor_Name</th>
     					<th>Actions</th>
@@ -29,7 +30,10 @@
                 
     				<tr>
                         <td>{{$i++}}</td>    
-                        <td>{{$course->name}}</td>            
+                        <td>{{$course->name}}</td>
+                        <td>
+                            <img src="{{$course->photo}}" class="rounded circle" width="100px" height="100px">
+                        </td>            
                         <td>{{$course->description}}</td>
                         <td>{{$course->tutor->name}}</td>            
                         <td>

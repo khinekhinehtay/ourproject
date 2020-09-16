@@ -44,7 +44,7 @@ class TutorController extends Controller
             'dob' => 'required',
         ]);
 
-         $photoName = time().'.'.$request->photo->extension();
+        $photoName = time().'.'.$request->photo->extension();
 
         $request->photo->move(public_path('backend/tutorimg'),$photoName);
 
@@ -106,11 +106,11 @@ class TutorController extends Controller
         ]);
 
          if($request->hasFile('photo')){
-        $photoName = time().'.'.$request->photo->extension();
+            $photoName = time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/tutorimg'),$photoName);
+            $request->photo->move(public_path('backend/tutorimg'),$photoName);
 
-        $path = 'backend/tutorimg/'.$photoName;
+            $path = 'backend/tutorimg/'.$photoName;
         }else{
 
             $path=$request->oldphoto;

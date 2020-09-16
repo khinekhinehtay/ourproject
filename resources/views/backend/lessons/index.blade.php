@@ -36,6 +36,8 @@
                         <td>{{$lesson->description}}</td>
                         <td>{{$lesson->subject->name}}</td>             
                         <td>
+
+                            <a href="{{route('lessons.show',$lesson->id)}}" class="btn btn-outline-primary">Detail</a>
                             
                             <a href="{{route('lessons.edit',$lesson->id)}}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
 

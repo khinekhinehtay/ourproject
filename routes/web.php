@@ -30,3 +30,4 @@ Route::resource('subjects','SubjectController');
 Route::resource('tutors','TutorController');
 
 Route::resource('lessons','LessonController');
+//Route::resource('login','Controller');

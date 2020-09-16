@@ -41,14 +41,22 @@ class CourseController extends Controller
         // dd($request);
         $request->validate([
             'name' => 'required',
+            'photo' => 'required',
             'description' => 'required',
             'tutor_id' => 'required',
         ]);
+
+        $photoName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('backend/courseimg'),$photoName);
+
+        $path = 'backend/courseimg/'.$photoName;
 
         // Data insert
 
         $course = new Course;
         $course->name = $request->name;
+        $course->photo = $path;
         $course->description = $request->description;
         $course->tutor_id = $request->tutor_id;
 
@@ -93,13 +101,26 @@ class CourseController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'photo' => 'required|sometimes',
             'description' => 'required',
             'tutor_id' => 'required',
         ]);
+
+        if($request->hasFile('photo')){
+            $photoName = time().'.'.$request->photo->extension();
+
+            $request->photo->move(public_path('backend/courseimg'),$photoName);
+
+            $path = 'backend/courseimg/'.$photoName;
+        }else{
+
+            $path=$request->oldphoto;
+        }
         
         // Data insert
         $course = Course::find($id);
         $course->name = $request->name;
+        $course->photo = $path;
         $course->description = $request->description;
         $course->tutor_id = $request->tutor_id;
 

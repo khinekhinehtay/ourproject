@@ -43,7 +43,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('dashboardpage')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -64,10 +64,11 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item " href=""><i class="icofont-fruits"></i><span>Fruit and herbs</span></a>
-            <a class="collapse-item " href=""><i class="icofont-list"><span>Category</span></i></a>
-            <a class="collapse-item " href=""><i class="icofont-drug"></i><span>Disease</span></a>
+            <h6 class="collapse-header">Components</h6>
+            <a class="collapse-item " href="{{route('courses.index')}}"><i class="icofont-fruits"></i><span>Courses</span></a>
+            <a class="collapse-item " href="{{route('subjects.index')}}"><i class="icofont-list"><span>Subjects</span></i></a>
+            <a class="collapse-item " href="{{route('lessons.index')}}"><i class="icofont-drug"></i><span>Lessons</span></a>
+            <a class="collapse-item " href="{{route('tutors.index')}}"><i class="icofont-drug"></i><span>Tutors</span></a>
 
             <a href="http://www.facebook.com/sharer.php?u=http://www.mywebsite.com" target="_blank">444</a>
 
@@ -79,21 +80,6 @@
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -121,13 +107,6 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
