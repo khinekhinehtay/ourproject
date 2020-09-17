@@ -13,7 +13,7 @@
     <div class="row">
     	<div class="col-md-12">
     		<table class="table table-bordered">
-    			<thead class="thead-dark">
+    			<thead class="thead bg-dark text-white">
     				<tr>
     					<th>No</th>
     					<th>Name</th>
