@@ -48,7 +48,7 @@
     
                         @guest
                         <div class="w3-right w3-hide-small">
-                            <a href="{{ url('/#projects') }}" class="w3-bar-item w3-button">Courses</a>
+                            <a href="{{ url('/#courses') }}" class="w3-bar-item w3-button">Courses</a>
                             <a href="{{ url('/#tutors') }}" class="w3-bar-item w3-button">Tutors</a>
                             <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
                             <a href="{{ route('register') }}" class="w3-bar-item w3-button">Register</a>

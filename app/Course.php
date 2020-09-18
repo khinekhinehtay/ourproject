@@ -10,6 +10,7 @@ class Course extends Model
     'name', 'photo','description'
   ];
 
+
   public function tutor($value='')
   {
   	return $this->belongsTo('App\Tutor');

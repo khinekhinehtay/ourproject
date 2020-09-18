@@ -4,50 +4,74 @@
 <meta chrset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="{{ url('/') }}" class="w3-bar-item w3-button"><b>E-Learning</b> Platform</a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#projects" class="w3-bar-item w3-button">Courses</a>
-      <a href="#tutors" class="w3-bar-item w3-button">Tutors</a>
-      <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
-      <a href="{{ route('register') }}" class="w3-bar-item w3-button">Register</a>
-    </div>
-  </div>
-</div>
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="{{ url('/') }}" class="w3-bar-item w3-button"><b>E-Learning</b> Platform</a>
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="#courses" class="w3-bar-item w3-button">Courses</a>
+        <a href="#tutors" class="w3-bar-item w3-button">Tutors</a>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="https://www.artechnoweb.in/images/slide/website-design-background.jpg" alt="Architecture" width="100%" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>E Learning</b></span> <span class="w3-hide-small w3-text-light-grey">Platform</span></h1>
-    <h1 class="w3-text-yellow"  style="text-shadow:1px 1px 0 #444">The New Way To Learn Properly in With Us!</h1>
-  </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
-
-  <!-- Courses Section -->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Popular Courses</h3>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Web Design</div>
-        <img src="https://varnitec.com/sites/default/files/2020-06/2.jpg" alt="House" style="width:100%">
+        @guest
+        <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
+        <a href="{{ route('register') }}" class="w3-bar-item w3-button">Register</a>
+        @else
+        @if (Auth::check())
+        <a class="w3-bar-item w3-button" href="{{ route('login') }}">Account</a>
+        
+        @endif
+        @endguest
       </div>
     </div>
-    
   </div>
 
+  <!-- Header -->
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src="https://www.artechnoweb.in/images/slide/website-design-background.jpg" alt="Architecture" width="100%" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>E Learning</b></span> <span class="w3-hide-small w3-text-light-grey">Platform</span></h1>
+      <h1 class="w3-text-white"  style="text-shadow:1px 1px 0 #444">The New Way To Learn Properly in With Us!</h1>
+    </div>
+  </header>
 
+  <!-- Page content -->
+  <div class="w3-content w3-padding" style="max-width:1564px">
+
+    <!-- Courses Section -->
+    <div class="w3-container w3-padding-32" id="courses">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Popular Courses</h3>
+    </div>
+
+    <div class="w3-row">
+     @foreach($courses as $course)
+     
+     <div class="w3-col s3 w3-card m-1"  onClick="showDialog()">
+      <div class="w3-display-container w3-center">
+        <a class="w3-display-topleft w3-black w3-padding" href = "{{ route('course.show', [$course->id]) }}">{{$course->name}}</a>
+        <a href="{{ route('course.show', [$course->id]) }}">
+          <img class="mt-5" src="{{$course->photo}}" width="150" height="150">
+        </a>
+        <div class="w3-container" height="20">
+          <p height="20" href = "{{ route('course.show', [$course->id]) }}">{{$course->description}}</p>
+        </div>
+        <a href="{{ route('course.show', [$course->id]) }}">
+          <div class="w3-container w3-teal">
+
+            <p>{{$course->tutor->name}}</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+    @endforeach
+  </div>
 
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
@@ -58,34 +82,22 @@
     </p>
   </div>
 
-
   <div class="w3-container w3-padding-32" id="tutors">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Tutors</h3>
   </div>
 
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://i.pinimg.com/originals/cd/88/6e/cd886e4afd07dafeee0f1bc4872740f9.png" alt="John" style="width:100%">
-      <h3>Web Design</h3>
-      <p class="w3-opacity">John Smith</p>
-      <p>Senior Web Designer</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+  
+  <div class="w3-row-padding w3-margin-top">
+    @foreach($tutors as $tutor)
+    <div class="w3-col s3">
+      <div class="w3-card w3-center" width="100" height="100">
+        <img src="{{$tutor->photo}}" width="150" height="150" >
+        <div class="w3-container">
+          <h5>{{$tutor->name}}</h5>
+        </div>
+      </div>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://i.pinimg.com/originals/cd/88/6e/cd886e4afd07dafeee0f1bc4872740f9.png" alt="John" style="width:100%">
-      <h3>Web Design</h3>
-      <p class="w3-opacity">John Smith</p>
-      <p>Senior Web Designer</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="https://i.pinimg.com/originals/cd/88/6e/cd886e4afd07dafeee0f1bc4872740f9.png" alt="John" style="width:100%">
-      <h3>Web Design</h3>
-      <p class="w3-opacity">John Smith</p>
-      <p>Senior Web Designer</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    
+    @endforeach
   </div>
 
   <!-- Contact Section -->
@@ -98,21 +110,22 @@
       <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
       <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
       <button class="w3-button w3-black w3-section" type="submit">
-        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        <i class="fa fa-paper-plane"></i> Send Message
       </button>
     </form>
   </div>
   
-
-
-<!-- End page content -->
+  <!-- End page content -->
 </div>
 
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
-  <p>Created by <a href="" class="w3-hover-text-green">KHSM-KKH-NNH</a></p>
+  <p>Created by <a href="" class="w3-hover-text-blue">KHSM-KKH-NNH</a></p>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

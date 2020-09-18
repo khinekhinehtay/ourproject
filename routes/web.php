@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('welcome');
+//     return view('welcome');
 
-});
+// });
+
+Route::get('/', [
+    'uses' => 'WelcomeController@index',
+    'as' => 'welcome'
+]);
 
 
 //backend
@@ -37,3 +42,7 @@ Route::resource('lessons','LessonController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/coursedetail','CoursedetailController@index')->name('coursedetail');
+
+Route::get('/course/{course}', 'CoursedetailController@show')->name('course.show');
