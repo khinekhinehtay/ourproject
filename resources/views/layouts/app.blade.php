@@ -37,7 +37,7 @@
                 
                       <!-- Float links to the right. Hide them on small screens -->
                       <div class="w3-right w3-hide-small">
-                        <a href="{{ route('content')}}" class="w3-bar-item w3-button">Content</a>
+                        <a href="{{ route('content')}}" class="w3-bar-item w3-button">Contact</a>
                 
                         @guest
                             <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>

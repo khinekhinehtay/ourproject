@@ -28,7 +28,7 @@
  				
  				<tr>
  					<td>{{$i++}}</td>
-          <td>{{$lessons->subject->name}}</td>
+          			<td>{{$lessons->subject->name}}</td>
  					<td>{{$lessons->description}}</td>
  					<td>
  						<video width="250" height="170" controls>
