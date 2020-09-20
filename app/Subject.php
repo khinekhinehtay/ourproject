@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Course;
+use App\Lesson;
 
 class Subject extends Model
 {

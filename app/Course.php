@@ -10,7 +10,11 @@ class Course extends Model
     'name', 'photo','description'
   ];
 
-
+  public function enrollments()
+  {
+      return $this->hasMany('App\Enrollments');
+  }
+  
   public function tutor($value='')
   {
   	return $this->belongsTo('App\Tutor');

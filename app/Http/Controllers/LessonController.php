@@ -55,6 +55,7 @@ class LessonController extends Controller
         $lesson = new Lesson;
         $lesson->video = $path;
         $lesson->description = $request->description;
+        $lesson->minutes = $request->minutes;
         $lesson->subject_id = $request->subject_id;
 
         $lesson->save();

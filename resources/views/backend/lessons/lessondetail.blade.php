@@ -32,7 +32,7 @@
  					<td>{{$lessons->description}}</td>
  					<td>
  						<video width="250" height="170" controls>
-                <source src="{{$lessons->video}}" type="video/mp4">
+                <source src="{{ asset('/' . $lessons->video) }}" type="video/mp4">
             </video>
           </td>
 

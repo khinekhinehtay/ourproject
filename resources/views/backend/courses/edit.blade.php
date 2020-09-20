@@ -57,7 +57,7 @@
 					<div class="form-group row {{ $errors->has('description') ? 'has-error' : '' }}">
 						<label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="inputDescription" name="description" value="{{$course->description}}">
+							<textarea class="form-control" id="inputDescription" name="description" value="">{{$course->description}}</textarea>
 							<span class="text-danger">{{ $errors->first('description') }}</span>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 								<option value="{{$tutor->id}}" {{ ( $tutor->id == $course->tutor_id) ? 'selected' : '' }}>{{$tutor->name}}</option>
 								@endforeach
 							</select>
-							<span class="text-danger">{{ $errors->first('tutorid') }}</span>
+							<span class="text-danger">{{ $errors->first('tutor_id') }}</span>
 						</div>
 					</div>
 

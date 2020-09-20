@@ -25,7 +25,7 @@ Route::get('/', [
 ]);
 
 
-//backend
+//Adminbackend
 Route::middleware('role:Admin')->group(function(){
 Route::get('dashboard','BackendController@dashboardfun')->name('dashboardpage');
 
@@ -39,10 +39,49 @@ Route::resource('lessons','LessonController');
 
 });
 
-Auth::routes();
+Route::get('/course/{course}/enroll', 'CoursedetailController@enroll')->name('course.enroll');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/course/{course}/unenroll', 'CoursedetailController@unenroll')->name('course.unenroll');
+
+Route::get('/course/{course}/complete', 'CoursedetailController@complete')->name('course.complete');
+
+Route::get('/enrollnoti', 'EnrollmentController@dashboard')->name('enrollnoti')->middleware('auth');
+
+Route::get('/enrollnoti/{user}/{course}/approve', 'EnrollmentController@approve')->name('enrollnoti.approve');
+
+Route::get('/enrollnoti/{user}/{course}/disapprove', 'EnrollmentController@disapprove')->name('enrollnoti.disapprove');
+
+
+//studentbackend
+Route::middleware('role:Student')->group(function(){
+    Route::get('/overview','OverviewController@dashboardfun')->name('overview');
+    
+    Route::get('/usernoti','UsernotiController@index')->name('usernoti');
+
+    Route::get('/mycourse','MyCourseController@index')->name('mycourse');
+
+    Route::get('/showsubjects/{courseid}','ShowsubjectController@index')->name('showsubjects.index');
+
+    Route::get('/showlessons/{subjectid}','ShowlessonController@index')->name('showlessons');
+});
+
+Route::get('studentdashboard','StudentbackendController@index')->name('studentdashboard');
+
+Route::get('/studentdashboard','StudentbackendController@index')->name('studentdashboard');
+
+
 
 Route::get('/coursedetail','CoursedetailController@index')->name('coursedetail');
 
 Route::get('/course/{course}', 'CoursedetailController@show')->name('course.show');
+
+Route::get('/content', 'ContentController@index')->name('content');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/dash','CheckAuthController@index')->name('dash');
+

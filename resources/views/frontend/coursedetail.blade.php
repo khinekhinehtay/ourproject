@@ -54,45 +54,45 @@
 	
 	<div id="dialog">
 		<a href="{{ url('/#courses') }}"><span >X</span></a>
+
 		<div class="jumbotron">
 			
 			<div class="course-title">
-				<h1 class = "display-4">{{$courses->name}}</h4>
+				<h1 class = "display-4">{{$course->name}}</h4>
 				</div>
 
 				
-				<img src="{{ asset('/' . $courses->photo) }}" width="150" height="150">
+				<img src="{{ asset('/' . $course->photo) }}" width="150" height="150">
 
 
 				<div class="published">
-					<h6>Published on: {{ $courses->created_at->toFormattedDateString() }}</h6>
+					<h6>Published on: {{ $course->created_at->toFormattedDateString() }}</h6>
 				</div>
 				<div class="author">
 					{{-- <h6 class= "lead">Author: {{ $author->name }}</h6> --}}
-					<p>{{$courses->description}}</p>
+					<p>{{$course->description}}</p>
 				</div>
 				<div class="author">
-					<p>Tutor : {{$courses->tutor->name}}</p>
+					<p>Tutor : {{$course->tutor->name}}</p>
 				</div>
 
-				{{-- @if ($enroll == true && Auth::user()->role->first()->name == "Student")
-				<div class="course-content">
-					<p class = "lead">{{ $courses->description }}</p>
-				</div>
+				@if ($enroll == true)
+		
 				<div class="course-button">
-					<a href="{{ route('course.unenroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg">Unenroll</a>
+					<a href="{{ route('course.unenroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg mb-2">Unenroll</a>
 					@if ($complete == false)
-					<br></br>
+					<br>
 					<a href="{{ route('course.complete', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Mark as Complete</a>
-					<br></br>
+					<br>
 					@endif
 				</div>
 				@else
 				@if ($complete == false)
 				<a href="{{ route('course.enroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Enroll</a>
 				@endif
-				@endif --}}
+				@endif
 			</div>
+			
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

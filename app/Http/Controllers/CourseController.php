@@ -73,6 +73,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
+       
+
         $courses = Course::find($id);
         return view('backend.courses.coursedetail',compact('courses'));
     }                                                                                   

@@ -47,6 +47,9 @@
         <a class="nav-link" href="{{route('dashboardpage')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
+          <a class="nav-link" href="{{route('enrollnoti')}}">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>Enrollments Noti</span></a>
       </li>
 
       <!-- Divider -->
