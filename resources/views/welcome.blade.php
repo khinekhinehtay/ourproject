@@ -85,7 +85,7 @@ a:link, a:visited {
     <div class="container-fluid content-row">
       <div class="row">
         @foreach ($courses as $course)
-        <div class="col-sm-12 col-lg-3" onclick="showDialog()">
+        <div class="col-sm-12 col-lg-3 p-3" onclick="showDialog()">
           <div class="card h-100">
             <a class="w3-display-topleft w3-black w3-padding" href = "{{ route('course.show', [$course->id]) }}">{{$course->name}}</a>
             <a href="{{ route('course.show', [$course->id]) }}">
@@ -127,10 +127,10 @@ a:link, a:visited {
     </div>
     @endforeach
   </div> --}}
-  <div class="row">
+  <div class="row p-3">
     @foreach ($tutors as $tutor)
 
-      <div class="col-sm-12 col-lg-3">
+      <div class="col-sm-12 col-lg-3 p-3">
         <div class="card">
             <div class="text-center profile-card" style="margin:15px;background-color:#ffffff;">
               <div class="profile-card-img" style="background-image:url(&quot;iceland.jpg&quot;);height:150px;background-size:cover;"></div>

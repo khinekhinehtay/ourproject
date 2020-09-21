@@ -76,21 +76,49 @@
 					<p>Tutor : {{$course->tutor->name}}</p>
 				</div>
 
-				@if ($enroll == true)
-		
-				<div class="course-button">
-					<a href="{{ route('course.unenroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg mb-2">Unenroll</a>
-					@if ($complete == false)
-					<br>
-					<a href="{{ route('course.complete', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Mark as Complete</a>
-					<br>
-					@endif
-				</div>
-				@else
-				@if ($complete == false)
-				<a href="{{ route('course.enroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Enroll</a>
-				@endif
-				@endif
+					@guest
+							@if ($enroll == true)
+				
+								<div class="course-button">
+									<a href="{{ route('course.unenroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg mb-2">Unenroll</a>
+									@if ($complete == false)
+									<br>
+									<a href="{{ route('course.complete', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Mark as Complete</a>
+									<br>
+									@endif
+								</div>
+							@elseif ($complete == false)
+							<a href="{{ route('course.enroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Enroll</a>
+							
+							@endif
+					@endguest
+
+					@auth
+						@if (auth()->user()->hasRole('Student'))
+								@if ($enroll == true)
+						
+								<div class="course-button">
+									<a href="{{ route('course.unenroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg mb-2">Unenroll</a>
+									@if ($complete == false)
+									<br>
+									<a href="{{ route('course.complete', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Mark as Complete</a>
+									<br>
+									@endif
+								</div>
+							@else
+							@if ($complete == false)
+							<a href="{{ route('course.enroll', [$course->id]) }}" type="button" class="btn btn-primary btn-lg" >Enroll</a>
+							@endif
+							@endif
+							
+							@else
+							<div class="alert alert-warning">
+								<strong>Warning!</strong> Admin <a href="#" class="alert-link">cannot enroll.</a>.
+							</div>	
+							@endif
+					@endauth			
+
+							
 			</div>
 			
 		</div>

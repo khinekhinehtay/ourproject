@@ -73,4 +73,22 @@ class RegisterController extends Controller
         $user->assignRole('Student');
         return $user;
     }
+
+    protected function redirectTo()
+    {
+        $roles = auth()->user()->getRoleNames();
+
+        // Check user role
+        switch ($roles[0]) {
+            case 'Student':
+                    return 'studentdashboard';
+                break;
+            case 'Admin':
+                    return 'home';
+                break; 
+            default:
+                    return '/';  
+                break;
+        }
+    }
 }
