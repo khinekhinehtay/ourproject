@@ -14,7 +14,6 @@ class CreateEnrollmentsTable extends Migration
     public function up()
     {
         Schema::create('enrollments', function (Blueprint $table) {
-            $table->increments('id')->primary();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('course_id')->unsigned();
             $table->boolean('status');
